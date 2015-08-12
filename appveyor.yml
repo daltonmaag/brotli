@@ -58,5 +58,12 @@ artifacts:
   # archive the generated packages in the ci.appveyor.com build report
   - path: dist\*
 
-#on_success:
-#  - TODO: upload the content of dist/*.whl to a public wheelhouse
+deploy:
+  - provider: GitHub
+    auth_token:
+      secure: o3NRzdcpPCSFjd9Gtwj9zjXP0yPRAieP0S0d4I8BK6/Xbl31u+9EsSiE+AUX8e2H
+    artifact:
+    draft: false
+    prerelease: false
+    on:
+      appveyor_repo_tag: true       # deploy on tag push only
