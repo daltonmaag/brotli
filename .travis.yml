@@ -17,16 +17,12 @@ after_success:
 - pip wheel -w dist .
 before_deploy:
 - export WHEELS=$(ls ./dist/*.whl)
-
-# use `travis setup releases` to create a Github OAuth token
-# http://docs.travis-ci.com/user/deployment/releases/
-
-# deploy:
-#   provider: releases
-#   api_key: <encrypted Github OAuth token> 
-#   file:
-#     - "${WHEELS}"
-#   skip_cleanup: true
-#   on:
-#     repo: google/brotli
-#     tags: true
+deploy:
+  provider: releases
+  api_key: PvM1xbJ7k7voRFcLqppVRmPez+mKfqmML4Kjx/PA3xnNmoafGEatfvetobuLQzGhw01iJFdgkvTuWhi2ohOxYhVHT3cjGMoG2f9GH89k2w2f4lHWSkG+36PAvCBIkExMeiTOe78yBFggDZwtirKtcJSE5+f5Di6qaCowzZ9UubvFCb7YTaIgbNGNH+ZTOg0F7GGLKCV8R7MuFjnUt5k0eoKzd0TvCuIuNWl71eegFbw9TXGlOnZ+4FgIhfufMD48YDGDtZGCw5xpDMP3BQr5Oc9OH7kzkWgD3ifZMWhBSikP8wczctXEWw9vVVLje0h1vPVmKF0iRdANSSnRocmnzdUwGoVJIzgFuo0w39AHNWu1XJh06Ox/+GsmlHjM5PkEpptCje+niOuP+/V2QAQjAsH9iVvTuH4Mr2EfzDamsAN1c3JKFCUc/BhZEY4+/gq6Ng5agI4iCJgqPaqQLAy4qVuyJhDbzw3iAdyB/Bc/ksrizfx/Te+WlV+ktV2hckQMiwK64OVixrAJ2jbwK3dbCtkf2hrkiZUQfO8Qe8hfaujJp4NiiX7zl2Z4MfqLwSN5fHo36vg74fIdZ8AXU5reMywRgv5KWS1jh5HYNJhXBCwQhZIgsx3PPZAXrGn1BJVVdzEhDGjFNyGkyVgbLkUhQAC5aOrAQQTbGkTGjkEk9lg=
+  file:
+    - "${WHEELS}"
+  skip_cleanup: true
+  on:
+    repo: daltonmaag/brotli
+    tags: true
