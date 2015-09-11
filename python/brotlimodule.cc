@@ -9,7 +9,7 @@
 #define PyInt_AsLong PyLong_AsLong
 #endif
 
-#define BROTLI_VERSION "0.1.0"
+#define BROTLI_VERSION "0.2.0"
 
 using namespace brotli;
 
